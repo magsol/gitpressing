@@ -27,7 +27,9 @@ class WPGH_Net
         }
 
         $curl_handle = curl_init($url);
+        $curl_version = curl_version();
         $options    += array(CURLOPT_RETURNTRANSFER => true);
+        $options    += array(CURLOPT_USERAGENT      => 'curl/' . $curl_version['version']);
 
         curl_setopt_array($curl_handle, $options);
 

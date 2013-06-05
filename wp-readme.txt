@@ -1,38 +1,24 @@
 === Plugin Name ===
-Contributors: Kenny Katzgrau
-Tags: github,bitbucket,projects,project,list
+Contributors: Shannon Quinn
+Tags: github,projects,project,list
 Requires at least: 3.0
 Tested up to: 3.3.2
 Stable tag: 1.1.0
 
-This is a Wordpress plugin that will list your open source projects from
-github or bitbucket in-page or via sidebar.
+This is a Wordpress plugin that will list your open source projects from github in-page or via sidebar.
 
 == Description ==
 
-This is a Wordpress plugin that will list your open source projects from
-github or bitbucket (or both). You can have them inserted in a standard post
-or page, or have them inserted in your sidebar. It's in use at
-[codefury.net](http://codefury.net/projects).
+This is a Wordpress plugin that will list your open source projects from github. You can have them inserted in a standard post or page, or have them inserted in your sidebar. It's in use at [magsol.me](http://www.magsol.me/projects).
 
 So in short, just placing:
 
-`{{github:username,bitbucket:username,sortby:watchers,sortdir:desc}}`
+`{{github:username,sortby:watchers,sortdir:desc}}`
 
-in a post would pull your projects from both github and bitbucket, merge them into one list,
-sort them in descending order by watchers, cache it, and place the list in your post.
-More detail at: [the github repository](https://github.com/katzgrau/wordpress-github)
+in a post would pull your projects from github, merge them into one list, sort them in descending order by watchers, cache it, and place the list in your post. More detail at [the github repository](https://github.com/magsol/wordpress-github).
 
-The plugin also comes packaged with a widget in case you'd just like to
-list your projects in the sidebar. Full details are on the settings page.
-
-New! Limited suuport for SourceForge: Just use sourceforge:username.
-
-Follow [@\_kennyk\_](http://twitter.com/_kennyk_) for updates, or visit
-[codefury.net](http://codefury.net)
+The plugin also comes packaged with a widget in case you'd just like to list your projects in the sidebar. Full details are on the settings page.
 
 == Installation ==
 
-There aren't really any special instructions for installing this plug-in. Once
-installed, be sure to go to the 'GitHub/BitBucket' settings page if you'd
-like to customize your template.
+There aren't really any special instructions for installing this plug-in. Once installed, be sure to go to the 'WordHub' settings page if you'd like to customize your template.
