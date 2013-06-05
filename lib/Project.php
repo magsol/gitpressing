@@ -37,7 +37,7 @@ class WPGH_Project
     public $watchers;
 
     /**
-     * The source hosting the project.. Like GitHub or BitBucket
+     * The source hosting the project.. aka github
      * @var string
      */
     public $source;
@@ -58,7 +58,7 @@ class WPGH_Project
 
     /**
      * Fetch information about all of the projects
-     * @param string $info A string like github:katzgrau[,bitbucket:katzgrau]+
+     * @param string $info A string like github:+
      * @param string $sort_type Valid sorts include ByWatchers
      * @param bool $sort_asc Whether the sort should be ascending or not
      * @return array[WPGH_Project]
@@ -154,70 +154,6 @@ class WPGH_Project
             $proj->source = "GitHub";
             $proj->watcher_noun = ($repo->watchers == 1 ? 'watcher' : 'watchers');
             $proj->updated = strtotime($repo->pushed_at);
-
-            $projects[] = $proj;
-        }
-
-        return $projects;
-    }
-
-    /**
-     * Fetch the projects from BitBucket
-     * @param string $username
-     * @return array An array of projects
-     */
-    public static function fetch_bitbucket($username)
-    {
-        $projects = array();
-
-        $url  = "https://api.bitbucket.org/1.0/users/$username/?format=json";
-        $json = WPGH_Net::get($url);
-
-        if(!is_object($json = json_decode($json)))
-            return FALSE;
-
-        foreach($json->repositories as $repo)
-        {
-            $proj = new WPGH_Project;
-            $proj->url = "https://bitbucket.org/$username/{$repo->slug}";
-            $proj->name = $repo->name;
-            $proj->description = $repo->description;
-            $proj->watchers = $repo->followers_count;
-            $proj->source = "BitBucket";
-            $proj->watcher_noun = ($repo->followers_count == 1 ? 'watcher' : 'watchers');
-            $proj->updated = 0;
-
-            $projects[] = $proj;
-        }
-
-        return $projects;
-    }
-
-    /**
-     * Fetch the projects from Sourceforge
-     * @param string $username
-     * @return array An array of projects
-     */
-    public static function fetch_sourceforge($username)
-    {
-        $projects = array();
-
-        $url  = "http://sourceforge.net/api/user/username/$username/json";
-        $json = WPGH_Net::get($url);
-
-        if(!is_object($json = json_decode($json)))
-            return FALSE;
-
-        foreach($json->User->projects as $repo)
-        {
-            $proj = new WPGH_Project;
-            $proj->url = "#";
-            $proj->name = $repo->unix_name;
-            $proj->description = $repo->name;
-            $proj->watchers = 1; # The guy who wrote it.. consistent with github
-            $proj->source = "SourceForge";
-            $proj->watcher_noun = ($proj->watchers == 1 ? 'watcher' : 'watchers');
-            $proj->updated = 0;
 
             $projects[] = $proj;
         }

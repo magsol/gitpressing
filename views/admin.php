@@ -42,7 +42,7 @@
     }
     
 </style>
-<h2>GitHub/BitBucket Project Lister</h2>
+<h2>GitHub Project Lister</h2>
 
 <?php if($wpgh_updated): ?>
     <p class="message">
@@ -51,8 +51,8 @@
 <?php endif; ?>
 
 <div id="wpgh_info">
-    Written by <span class="name">Kenny Katzgrau</span> (<a href="http://twitter.com/_kennyk_">@_kennyk_)</a>.
-    Find him at <a href="http://codefury.net/">codefury.net</a>. Reach him via <a href="mailto:katzgrau@gmail.com">katzgrau@gmail.com</a> with any questions!
+    Written by <span class="name">Shannon Quinn</span> (<a href="http://twitter.com/magsol">@magsol)</a>.
+    Find him at <a href="http://www.magsol.me/">magsol.me</a>. Reach him via <a href="mailto:magsol@gmail.com">magsol@gmail.com</a> with any questions!
 </div>
 
 <p>
@@ -68,12 +68,8 @@
     {{github:username}}
 </pre>
 <p>
-    in the post where you'd like the list to show up. You can include projects from multiple places.
-    You can also edit the template used to list your projects inside a page below.
+    in the post where you'd like the list to show up. You can also edit the template used to list your projects inside a page below.
 </p>
-<pre>
-    {{github:username,bitbucket:katzgrau}}
-</pre>
 
 <p>
     Projects are sorted how they naturally come back from the source. You can force a sort by
@@ -81,9 +77,9 @@
 </p>
 
 <pre>
-    {{github:username,bitbucket:katzgrau,sortby:watchers,sortdir:desc}} # Most watchers first
-    {{github:username,bitbucket:katzgrau,sortby:name,sortdir:asc}}      # Alphabetical
-    {{github:username,bitbucket:katzgrau,sortby:updated,sortdir:desc}}  # Last push/update
+    {{github:username,sortby:watchers,sortdir:desc}} # Most watchers first
+    {{github:username,sortby:name,sortdir:asc}}      # Alphabetical
+    {{github:username,sortby:updated,sortdir:desc}}  # Last push/update
 </pre>
 
 <p>

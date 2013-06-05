@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: GitHub & BitBucket Project Lister
-Plugin URI: https://github.com/katzgrau/wordpress-github
-Description: List your github and bitbucket projects on your Wordpress blog really, really easily. Why? Because you're a baller.
-Version: 1.1.0
-Author: Kenny Katzgrau
-Author URI: http://codefury.net
+Plugin Name: WordHub
+Plugin URI: https://github.com/magsol/wordhub
+Description: List your github projects on your Wordpress blog really, really easily. Because it's how you do.
+Version: 0.1
+Author: Shannon Quinn
+Author URI: http://www.magsol.me/
 */
 
 require_once dirname(__FILE__) . '/lib/Project.php';
@@ -17,7 +17,7 @@ add_action('admin_menu',   array('WPGH_Core', 'registerAdmin'));
 add_action('widgets_init', array('WPGH_Core', 'registerWidget'));
 
 /**
- * This class is the core of the github/bitbucket project lister.
+ * This class is the core of the github project lister.
  */
 class WPGH_Core
 {
@@ -31,7 +31,7 @@ class WPGH_Core
 
     /**
      * A callback that will parse out things in the form {{source:username}} and
-     *  replace it with the project list. Ex, {{github:katzgrau}}
+     *  replace it with the project list. Ex, {{github:magsol}}
      * @param string $content
      * @return string The updated content
      */
@@ -111,7 +111,7 @@ TEMP;
      */
     static function registerAdmin()
     {
-        add_options_page('Github/BitBucket', 'GitHub/BitBucket', 'edit_pages', 'wordpress-github.php', array(__CLASS__, 'adminMenuCallback'));
+        add_options_page('Github', 'GitHub', 'edit_pages', 'wordhub.php', array(__CLASS__, 'adminMenuCallback'));
     }
 
     /**
@@ -161,7 +161,7 @@ class WPGH_Widget extends WP_Widget
      */
      function WPGH_Widget()
      {
-        $widget_ops = array('classname' => 'wpgh_projects', 'description' => 'A list of your GitHub or BitBucket projects');
+        $widget_ops = array('classname' => 'wpgh_projects', 'description' => 'A list of your GitHub projects');
         $this->WP_Widget('wpgh_projects', 'GitHub Projects', $widget_ops);
      }
 
@@ -243,7 +243,7 @@ class WPGH_Widget extends WP_Widget
        <p>
             <label for="<?php echo $this->get_field_id('w_info_string'); ?>">Sources:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'w_info_string' ); ?>" name="<?php echo $this->get_field_name('w_info_string'); ?>" value="<?php echo $instance['w_info_string']; ?>" />
-            <small>eg, github:katzgrau</small>
+            <small>eg, github:magsol</small>
        </p>
        <div style="border-bottom: 1px dotted #ccc; margin-bottom: 8px; margin-left: 10px; margin-right: 10px;"></div>
        <p>

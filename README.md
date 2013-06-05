@@ -8,7 +8,7 @@ In short, simply place:
 
 in a post would pull your projects from github, merge them into one list, sort them in descending order by watchers, cache it, and place the list in your post. More below!
 
-NOTE: Unlike the project from which this was forked, this supports *only github*. Support for bitlocker projects has been removed.
+NOTE: Unlike the project from which this was forked, this supports *only github*. Support for bitbucket projects has been removed.
 
 ## Installation
 
@@ -59,10 +59,8 @@ Lastly, you can sort by the last update or push.
 ## Other details
 
 The plugin caches your projects for 1 hour. If you'd like to configure this,
- edit `WPGH_Core::$_cacheExpiration` in `wordpress-github.php`. This might be
+ edit `WPGH_Core::$_cacheExpiration` in `wordhub.php`. This might be
  configurable via the admin interface later.
-
-Caching is done via another project of mine, [WP-Easy-Cache](https://github.com/katzgrau/WP-Easy-Cache).
 
 ## License (Apache 2.0)
 
