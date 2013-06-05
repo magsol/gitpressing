@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WordHub
-Plugin URI: https://github.com/magsol/wordhub
+Plugin Name: GitPressing
+Plugin URI: https://github.com/magsol/gitpressing
 Description: List your github projects on your Wordpress blog really, really easily. Because it's how you do.
-Version: 0.1
+Version: 0.2
 Author: Shannon Quinn
 Author URI: http://www.magsol.me/
 */
@@ -111,7 +111,7 @@ TEMP;
      */
     static function registerAdmin()
     {
-        add_options_page('Github', 'GitHub', 'edit_pages', 'wordhub.php', array(__CLASS__, 'adminMenuCallback'));
+        add_options_page('Github', 'GitHub', 'edit_pages', 'gitpressing.php', array(__CLASS__, 'adminMenuCallback'));
     }
 
     /**
